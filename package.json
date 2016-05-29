@@ -2,13 +2,35 @@
   "name": "swapiserver",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jincheng li",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "buffer": "^4.6.0",
+    "express": "^4.13.4",
+    "gulp-babel": "^6.1.2",
+    "gulp-util": "^3.0.7",
+    "mongoose": "^4.4.19",
+    "vinyl-buffer": "^1.0.0",
+    "watchify": "^3.7.0",
+    "webpack-config-babel": "^0.2.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "hjs-webpack": "^8.2.0",
+    "postcss-loader": "^0.9.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
   }
 }
