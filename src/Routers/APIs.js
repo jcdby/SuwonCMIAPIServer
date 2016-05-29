@@ -1,7 +1,9 @@
-
+import photoController from './../controller/photoController';
+let photo_contr = new photoController();
 
 
 module.exports = function (app) {
+    
     //article apis
     app.route('/articles/')
         .all(function (req, res, next) {
@@ -19,14 +21,11 @@ module.exports = function (app) {
             console.log('photos are requested!')
             next();
         })
-        .get(function (req, res, next) {
-            console.log('downloading is statting')
-            res.send('downloading is finished')
-        })
+        .get(photo_contr.getMethod);
 
 
     //Main page api
     app.get('/', function (req, res) {
-        res.send('Welcom to Suwon CMI church!')
+        res.send('Welcom to Suwon CMI church!changing');
     })
 }

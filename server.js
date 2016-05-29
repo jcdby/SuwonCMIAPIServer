@@ -1,9 +1,3 @@
-
-
-// var express = require('express')
-// var app = express()
-// var router = require('./src//Routers//APIs')
-
 import express from 'express';
 import router from './src/Routers/APIs'
 let app = express();
@@ -14,6 +8,6 @@ router(app);
 
 
 //port
-app.listen(8990, function () {
-  console.log('Example app listening on port 8990!')
+app.listen(10000, function () {
+  console.log('Example app listening on port 10000!')
 })

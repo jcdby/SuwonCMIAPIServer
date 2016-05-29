@@ -2,18 +2,19 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var webpack = require('webpack-stream');
 const babel = require('gulp-babel');
+const nodemon = require('gulp-nodemon')
 
 
 
 
-gulp.task('default', function () {
+gulp.task('webpack-task', function () {
   return gulp.src('server.js')
     .pipe(webpack({
       watch: true,
       target: 'node',
       output: {
-            filename: 'server.js',
-        },
+        filename: 'server.js',
+      },
       module: {
         loaders: [
           {
@@ -25,13 +26,22 @@ gulp.task('default', function () {
             }
           },
           {
-            test:/\.json/,
+            test: /\.json/,
             loader: 'json'
           }
         ]
       }
     }))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/'))
+    .pipe(nodemon({
+      script: 'dist/server.js'
+    })
+      .on('restart', function () {
+        console.log('restarted!')
+      })
+    )
 
 
 });
+
+
