@@ -2,16 +2,19 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var webpack = require('webpack-stream');
 const babel = require('gulp-babel');
-const nodemon = require('gulp-nodemon')
+const nodemon = require('gulp-nodemon');
+
+var nodeExternals = require('webpack-node-externals');
 
 
 
 
-gulp.task('webpack-task', function () {
+gulp.task('default', function () {
   return gulp.src('server.js')
     .pipe(webpack({
       watch: true,
       target: 'node',
+      externals: [nodeExternals()],
       output: {
         filename: 'server.js',
       },

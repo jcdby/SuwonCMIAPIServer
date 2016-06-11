@@ -1,3 +1,7 @@
+import gallery from './../models//gallery';
+import mongoose from 'mongoose';
+import database from './../Database//database'
+
 
 export default class photoController {
     constructor() {
@@ -5,8 +9,14 @@ export default class photoController {
     }
 
     getMethod(req, res, next) {
-        console.log('downloading is statting');
-        console.log('dowloading!!!!');
-        res.send('downloading is finished'); 
+
+
+        gallery.find({}, function (err, items) {
+                if (err) throw err;
+                // object of all the users
+                res.json(items);
+            });
+
+
     }
 }

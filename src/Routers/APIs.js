@@ -1,8 +1,12 @@
 import photoController from './../controller/photoController';
+import express from 'express'
 let photo_contr = new photoController();
 
 
 module.exports = function (app) {
+    
+    app.use(express.static('./src/public'));
+
     
     //article apis
     app.route('/articles/')
@@ -21,7 +25,8 @@ module.exports = function (app) {
             console.log('photos are requested!')
             next();
         })
-        .get(photo_contr.getMethod);
+        .get(photo_contr.getMethod)
+        
 
 
     //Main page api
