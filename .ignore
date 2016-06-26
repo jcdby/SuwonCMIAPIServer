@@ -1,2 +1,3 @@
 #bundle file
 dist/server.js
+.vscode
