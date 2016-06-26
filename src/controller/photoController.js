@@ -9,14 +9,13 @@ export default class photoController {
     }
 
     getMethod(req, res, next) {
-
-
-        gallery.find({}, function (err, items) {
+        gallery.find({})
+            .limit(10)
+            .sort('-reg_date')
+            .exec(function (err, items) {
                 if (err) throw err;
                 // object of all the users
                 res.json(items);
             });
-
-
     }
 }

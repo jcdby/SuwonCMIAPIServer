@@ -54,32 +54,21 @@
 
 	var _APIs2 = _interopRequireDefault(_APIs);
 
-	var _database = __webpack_require__(6);
-
-	var _database2 = _interopRequireDefault(_database);
+	var _CORSmiddleware = __webpack_require__(7);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var app = (0, _express2.default)();
 
-	// db.once('open', function() {
-	//   // we're connected!
-	//   console.log('db is connected!')
-
-	//   mongoose.model("gallery",'gallery').find({}, function(err, items) {
-	//     if (err) throw err;
-	//             // object of all the users
-	//      console.log(items);
-	//   });
-
-	// });
+	//Server Middlewares configuration part
+	app.use(_CORSmiddleware.allowCrossDomain);
 
 	//start router
 	(0, _APIs2.default)(app);
 
 	//port
 	app.listen(10000, function () {
-	  console.log('Example app listening on port 10000!');
+	  console.log('SuWon church API Server listening on port 10000!');
 	});
 
 /***/ },
@@ -166,8 +155,7 @@
 	    _createClass(photoController, [{
 	        key: 'getMethod',
 	        value: function getMethod(req, res, next) {
-
-	            _gallery2.default.find({}, function (err, items) {
+	            _gallery2.default.find({}).limit(10).sort('-reg_date').exec(function (err, items) {
 	                if (err) throw err;
 	                // object of all the users
 	                res.json(items);
@@ -244,7 +232,7 @@
 	  function database() {
 	    _classCallCheck(this, database);
 
-	    this.db = _mongoose2.default.createConnection('mongodb://192.168.99.100:32781/swcmi');
+	    this.db = _mongoose2.default.createConnection('mongodb://192.168.99.100:32784/swcmi');
 
 	    this.getDB = this.getDB.bind(this);
 	  }
@@ -260,6 +248,24 @@
 	}();
 
 	exports.default = new database();
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.allowCrossDomain = allowCrossDomain;
+	function allowCrossDomain(req, res, next) {
+	    res.header('Access-Control-Allow-Origin', '*');
+	    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+	    next();
+	}
 
 /***/ }
 /******/ ]);
