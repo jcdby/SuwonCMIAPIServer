@@ -6,7 +6,7 @@ class database {
 
   
   constructor() {
-    this.db = mongoose.createConnection('mongodb://192.168.99.100:32784/swcmi');
+    this.db = mongoose.createConnection('mongodb://swchurch:123456@ds023634.mlab.com:23634/swcmi');
     
     this.getDB = this.getDB.bind(this);
   }  

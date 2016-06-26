@@ -232,7 +232,7 @@
 	  function database() {
 	    _classCallCheck(this, database);
 
-	    this.db = _mongoose2.default.createConnection('mongodb://192.168.99.100:32784/swcmi');
+	    this.db = _mongoose2.default.createConnection('mongodb://swchurch:123456@ds023634.mlab.com:23634/swcmi');
 
 	    this.getDB = this.getDB.bind(this);
 	  }
