@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "babelify": "^7.3.0",
+    "body-parser": "^1.15.2",
     "browserify": "^13.0.1",
     "bson": "^0.4.23",
     "buffer": "^4.6.0",
@@ -17,6 +18,8 @@
     "gulp-babel": "^6.1.2",
     "gulp-util": "^3.0.7",
     "mongoose": "^4.4.19",
+    "multer": "^1.1.0",
+    "passport": "^0.3.2",
     "vinyl-buffer": "^1.0.0",
     "watchify": "^3.7.0",
     "webpack-config-babel": "^0.2.0",

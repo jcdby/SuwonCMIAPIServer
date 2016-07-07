@@ -54,14 +54,25 @@
 
 	var _APIs2 = _interopRequireDefault(_APIs);
 
-	var _CORSmiddleware = __webpack_require__(7);
+	var _CORSmiddleware = __webpack_require__(9);
+
+	var _bodyParser = __webpack_require__(10);
+
+	var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
+	var _multer = __webpack_require__(11);
+
+	var _multer2 = _interopRequireDefault(_multer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var app = (0, _express2.default)();
+	var upload = (0, _multer2.default)(); // for parsing multipart/form-data
 
 	//Server Middlewares configuration part
 	app.use(_CORSmiddleware.allowCrossDomain);
+	app.use(_bodyParser2.default.json()); // for parsing application/json
+	app.use(_bodyParser2.default.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 	//start router
 	(0, _APIs2.default)(app);
@@ -87,6 +98,10 @@
 
 	var _photoController2 = _interopRequireDefault(_photoController);
 
+	var _userController = __webpack_require__(7);
+
+	var _userController2 = _interopRequireDefault(_userController);
+
 	var _express = __webpack_require__(1);
 
 	var _express2 = _interopRequireDefault(_express);
@@ -94,6 +109,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var photo_contr = new _photoController2.default();
+	var user_contro = new _userController2.default();
 
 	module.exports = function (app) {
 
@@ -107,11 +123,13 @@
 	        res.send('getting articles');
 	    });
 
+	    app.route('/login').post(user_contro.login);
+
 	    //photos apis
 	    app.route('/photos/').all(function (req, res, next) {
 	        console.log('photos are requested!');
 	        next();
-	    }).get(photo_contr.getMethod);
+	    }).get(photo_contr.getGalleryList);
 
 	    //Main page api
 	    app.get('/', function (req, res) {
@@ -153,8 +171,8 @@
 	    }
 
 	    _createClass(photoController, [{
-	        key: 'getMethod',
-	        value: function getMethod(req, res, next) {
+	        key: 'getGalleryList',
+	        value: function getGalleryList(req, res, next) {
 	            _gallery2.default.find({}).limit(10).sort('-reg_date').exec(function (err, items) {
 	                if (err) throw err;
 	                // object of all the users
@@ -251,6 +269,84 @@
 
 /***/ },
 /* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _user = __webpack_require__(8);
+
+	var _user2 = _interopRequireDefault(_user);
+
+	var _mongoose = __webpack_require__(5);
+
+	var _mongoose2 = _interopRequireDefault(_mongoose);
+
+	var _database = __webpack_require__(6);
+
+	var _database2 = _interopRequireDefault(_database);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var userController = function () {
+	    function userController() {
+	        _classCallCheck(this, userController);
+	    }
+
+	    _createClass(userController, [{
+	        key: 'login',
+	        value: function login(req, res) {
+	            var user = new _user2.default(req.body);
+
+	            user.save(function (err, item) {
+	                if (err) throw err;
+	                // object of all the users
+	                res.send(item.username + ' is created!');
+	            });
+	        }
+	    }]);
+
+	    return userController;
+	}();
+
+	exports.default = userController;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _mongoose = __webpack_require__(5);
+
+	var _mongoose2 = _interopRequireDefault(_mongoose);
+
+	var _database = __webpack_require__(6);
+
+	var _database2 = _interopRequireDefault(_database);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Schema = _mongoose2.default.Schema;
+
+	var UserSchema = Schema({
+	  username: String,
+	  password: String
+	});
+
+	var User = _database2.default.getDB().model('user', UserSchema, 'users');
+
+	module.exports = User;
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -266,6 +362,18 @@
 
 	    next();
 	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = require("body-parser");
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = require("multer");
 
 /***/ }
 /******/ ]);

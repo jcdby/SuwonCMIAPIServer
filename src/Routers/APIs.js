@@ -1,6 +1,8 @@
 import photoController from './../controller/photoController';
+import userController from './../controller//userController'
 import express from 'express'
 let photo_contr = new photoController();
+let user_contro = new userController();
 
 
 module.exports = function (app) {
@@ -18,6 +20,9 @@ module.exports = function (app) {
             res.send('getting articles')
         })
 
+    app.route('/login')
+        .post(user_contro.login)
+
 
     //photos apis
     app.route('/photos/')
@@ -25,7 +30,7 @@ module.exports = function (app) {
             console.log('photos are requested!')
             next();
         })
-        .get(photo_contr.getMethod)
+        .get(photo_contr.getGalleryList)
         
 
 
