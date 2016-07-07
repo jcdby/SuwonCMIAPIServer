@@ -25,12 +25,13 @@ module.exports = function (app) {
 
 
     //photos apis
-    app.route('/photos/')
+    app.route('/photos')
         .all(function (req, res, next) {
             console.log('photos are requested!')
             next();
         })
         .get(photo_contr.getGalleryList)
+
         
 
 
