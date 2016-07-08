@@ -1,0 +1,21 @@
+{
+    "files": [
+        "src/server.ts",
+        "typings/index.d.ts"
+    ],
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "target": "es5",
+        "sourceMap": true,
+        "declaration": false,
+        "outDir": "build"
+    },
+    "exclude": [
+        "node_modules",
+        "typings"
+    ]
+}

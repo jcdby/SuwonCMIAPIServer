@@ -20,8 +20,8 @@ module.exports = function (app) {
             res.send('getting articles')
         })
 
-    app.route('/login')
-        .post(user_contro.login)
+    app.route('/signup')
+        .post(user_contro.signup)
 
 
     //photos apis

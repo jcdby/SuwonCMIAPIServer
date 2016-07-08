@@ -8,7 +8,10 @@ export default class userController {
 
     }
 
-    login(req, res) {
+    signup(req, res) {
+        //check if user is existed
+        users.find({username: req.body.username})
+
       let user = new users(req.body);
 
         user.save(function (err, item) {

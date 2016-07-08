@@ -3,11 +3,18 @@ var gutil = require('gulp-util');
 var webpack = require('webpack-stream');
 const babel = require('gulp-babel');
 const nodemon = require('gulp-nodemon');
+const ts = require('gulp-typescript');
+
+var tsProject = ts.createProject("tsconfig.json");
 
 var nodeExternals = require('webpack-node-externals');
 
 
-
+gulp.task('tscompile', function () {
+  return tsProject.src()
+    .pipe(ts(tsProject))
+    .js.pipe(gulp.dest("distTs"))
+});
 
 gulp.task('default', function () {
   return gulp.src('server.js')
