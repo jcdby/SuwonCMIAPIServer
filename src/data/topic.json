@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "forum_id": 1,
+    "state": "your_experiences",
+    "title": "Your experiences",
+    "author": "Jincheng",
+    "description": "Speak about your experiences here!",
+    "active": "2016-06-09-10:20:40",
+    "posts_list": [
+      {
+        "post_id": 1,
+        "title": "Israel and missionary work",
+        "author": "Mose",
+        "content": "What are the specificities  of Israel as a missionary land? Since this is the only Jewish country in the world, with a large muslim minority, how would you approach the missionary work?         What is the percentage of Christians there?"
+      },
+      {
+        "post_id": 2,
+        "title": "Reducers",
+        "author": "Francois",
+        "content": "They are useful for sure. But for religion, I'm not sure... That's an open question, I'd say. One should try!"
+      },
+      {
+        "post_id": 3,
+        "title": "Korea",
+        "author": "Simon",
+        "content": "Nobody wants to read the bible in czech in Korea. Don't even try.... I've wasted a whole month trying to preach around."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "forum_id": 1,
+    "state": "what_is_missionary_work",
+    "title": "What is missionary work?",
+    "author": "Dung",
+    "description": "Explanations",
+    "active": "2016-07-07-10:20:40",
+    "posts_list": [
+      {
+        "post_id": 1,
+        "title": "The first missionary",
+        "author": "Dung",
+        "content": "John. He enjoyed baptizing people. And Peter as well. He became the first vicor of Rome."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "forum_id": 1,
+    "state": "missionary_target",
+    "title": "Missionary targets",
+    "author": "Jincheng",
+    "description": "Where to spread the Word?",
+    "active": "2016-06-09-10:20:40",
+    "posts_list": [
+      {
+        "post_id": 1,
+        "title": "Victor Hugo",
+        "author": "Francois",
+        "content": "Victor Hugo said that god is the Verb, and the Verb is God. Dieu est le verbe et le Verbe c'est dieu. I would encourage everybody to learn French. If you don't find God, at least you can order croissants properly."
+      },
+      {
+        "post_id": 2,
+        "title": "England",
+        "author": "Francois",
+        "content": "To me, England needs a good worship. A lot of things to be forgiven over there."
+      }
+    ]
+  }
+]
