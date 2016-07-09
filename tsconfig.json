@@ -1,7 +1,12 @@
 {
+    "exclude": [
+        "node_modules",
+        "build",
+        "./typings"
+    ],
     "files": [
-        "src/server.ts",
-        "typings/index.d.ts"
+        "src/server.ts"
+        
     ],
     "compileOnSave": false,
     "compilerOptions": {
@@ -9,13 +14,11 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
+        "moduleResolution": "node",
         "target": "es5",
         "sourceMap": true,
         "declaration": false,
         "outDir": "build"
-    },
-    "exclude": [
-        "node_modules",
-        "typings"
-    ]
+    }
+   
 }
