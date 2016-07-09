@@ -6,7 +6,7 @@ import database from './../Database//database'
 export default class photoController {
     
 
-    getMethod(req, res, next) {
+    getGalleryList(req, res, next) {
         gallery.find({})
             .limit(10)
             .skip(req.query.skip)

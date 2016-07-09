@@ -7,6 +7,6 @@ var router = express.Router();
 router.all('/', function (req, res, next) {
     console.log('photos are requested!');
     next();
-}).get('/', photo_contr.getMethod);
+}).get('/', photo_contr.getGalleryList);
 
 module.exports = router;

@@ -1,8 +1,8 @@
-import express from 'express';
+import * as express from 'express';
 import router from './src/Routers/APIs';
 import {allowCrossDomain} from './src/Middlewares/CORSmiddleware'
 import bodyParser from 'body-parser';
-import multer from 'multer';
+import * as multer from 'multer';
 
 let app = express();
 var upload = multer(); // for parsing multipart/form-data
@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 //start router
 router(app);
 
+
 //port
 app.listen(10000, function () {
   console.log('SuWon church API Server listening on port 10000!')
-});
+})
