@@ -13,45 +13,24 @@ var nodeExternals = require('webpack-node-externals');
 gulp.task('tscompile', function () {
   return tsProject.src()
     .pipe(ts(tsProject))
-    .js.pipe(gulp.dest("distTs"))    
+    .js.pipe(gulp.dest("distTs")) 
 });
 
-gulp.task('default', function () {
-  return gulp.src('server.js')
-    .pipe(webpack({
-      watch: true,
-      target: 'node',
-      externals: [nodeExternals()],
-      output: {
-        filename: 'server.js',
-      },
-      module: {
-        loaders: [
-          {
-            test: /\.jsx?$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'babel', // 'babel-loader' is also a legal name to reference
-            query: {
-              presets: ['es2015']
-            }
-          },
-          {
-            test: /\.json/,
-            loader: 'json'
-          }
-        ]
-      }
-    }))
-    .pipe(gulp.dest('dist/'))
-    .pipe(nodemon({
-      script: 'dist/server.js'
-    })
-      .on('restart', function () {
-        console.log('restarted!')
-      })
-    )
-
-
+gulp.task('node', ['tscompile'], function () {
+  nodemon({
+    script: 'distTs/index.js',
+    ext: 'js,json',
+    env: {
+      'NODE_ENV': 'development'
+    },
+    ignore: ['src/**', 'node_modules/**', 'bower_components/**', 'typings/**'],
+  });
 });
+
+gulp.task('watch', function () {
+  gulp.watch(['./src/' + '/**/*.ts'], ['tscompile'])
+})
+
+gulp.task('default', ['node', 'watch']);
 
 
