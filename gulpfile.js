@@ -13,7 +13,7 @@ var nodeExternals = require('webpack-node-externals');
 gulp.task('tscompile', function () {
   return tsProject.src()
     .pipe(ts(tsProject))
-    .js.pipe(gulp.dest("distTs"))
+    .js.pipe(gulp.dest("distTs"))    
 });
 
 gulp.task('default', function () {

@@ -1,12 +1,6 @@
 {
     "exclude": [
-        "node_modules",
-        "build",
-        "./typings"
-    ],
-    "files": [
-        "src/server.ts"
-        
+        "node_modules"
     ],
     "compileOnSave": false,
     "compilerOptions": {

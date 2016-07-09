@@ -1,5 +1,6 @@
+/// <reference path="../../typings/index.d.ts" />
 
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import database from '../Database/database';
 
 var Schema = mongoose.Schema;
@@ -12,6 +13,6 @@ var GallerySchema = new Schema({
     file_name2: String
 });
 
-var Gallery = database.getDB().model('gallery', GallerySchema, 'gallery');
+export var Gallery = database.getDB().model('gallery', GallerySchema, 'gallery');
 
-module.exports = Gallery;
+
