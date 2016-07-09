@@ -5,7 +5,7 @@ const babel = require('gulp-babel');
 const nodemon = require('gulp-nodemon');
 const ts = require('gulp-typescript');
 
-var tsProject = ts.createProject("tsconfig.json");
+var tsProject = ts.createProject("./tsconfig.json");
 
 var nodeExternals = require('webpack-node-externals');
 

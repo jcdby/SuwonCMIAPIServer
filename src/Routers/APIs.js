@@ -18,3 +18,4 @@ module.exports = function (app) {
         res.send('Welcome to Suwon CMI church!changing');
     })
 };
+
