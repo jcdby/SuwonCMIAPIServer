@@ -9,11 +9,9 @@ export class Server {
   private apiRouter: APIRouter
 
   constructor(options?: JSONObject) {
-    this.options = options || {}
-    this.apiRouter = new APIRouter()
+    this.options = options || {};
+    this.apiRouter = new APIRouter();
   }
-
-
 
   start() {
     let app: express.Express = express();
