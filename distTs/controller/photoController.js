@@ -1,16 +1,16 @@
 "use strict";
-var tsgallery_1 = require('./../models/tsgallery');
+var GalleryModel_1 = require('./../Models/GalleryModel');
 var PhotoController;
 (function (PhotoController) {
     function getGalleryList(req, res, next) {
-        tsgallery_1.Gallery.find({})
+        GalleryModel_1.Gallery.find({})
             .limit(10)
             .skip(req.query.skip)
             .sort('-reg_date')
             .exec(function (err, items) {
             if (err)
                 throw err;
-            tsgallery_1.Gallery.count({}, function (err, count) {
+            GalleryModel_1.Gallery.count({}, function (err, count) {
                 if (err)
                     throw err;
                 var result = {

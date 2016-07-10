@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
-import database from './../Database/database';
-import {Gallery} from './../models/tsgallery'
+import database from './../Database/Database';
+import {Gallery} from './../Models/GalleryModel'
 
 
 export namespace PhotoController {

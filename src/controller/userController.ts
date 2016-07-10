@@ -1,5 +1,5 @@
-import {User} from './../models/tsuser';
-import database from './../Database/database'
+import {User} from './../Models/UserModel';
+import database from './../Database/Database'
 
 export namespace UserController {
         export function signup(req: any, res: any) {
