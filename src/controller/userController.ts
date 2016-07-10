@@ -1,5 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
-
 import {User} from './../models/tsuser';
 import database from './../Database/database'
 
