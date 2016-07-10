@@ -1,2 +1,2 @@
-export *  from './photoController';
-export *  from './userController';
+export * from './PhotoController';
+export * from './UserController';
