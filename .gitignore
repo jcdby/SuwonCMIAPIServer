@@ -4,3 +4,4 @@ dist/server.js
 node_modules
 .idea
 distTs
+typings

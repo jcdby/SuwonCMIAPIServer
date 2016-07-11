@@ -5,6 +5,7 @@
 /// <reference path="globals/mongoose/index.d.ts" />
 /// <reference path="globals/multer/index.d.ts" />
 /// <reference path="globals/node/index.d.ts" />
+/// <reference path="globals/passport/index.d.ts" />
 /// <reference path="globals/serve-static/index.d.ts" />
 /// <reference path="modules/jsonwebtoken/index.d.ts" />
 /// <reference path="modules/mime/index.d.ts" />

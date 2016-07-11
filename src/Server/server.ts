@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as multer from 'multer';
 import {APIRouter} from '../Routers/APIs'
 import {allowCrossDomain} from '../Middlewares/CORSmiddleware'
+import * as passport from 'passport'
 
 export class Server {
   private options: JSONObject;
@@ -21,6 +22,9 @@ export class Server {
     app.use(allowCrossDomain);
     app.use(bodyParser.json()); // for parsing application/json
     app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+    //To use passport 
+    app.use(passport.initialize());
 
     //start router
     this.apiRouter.init(app)
