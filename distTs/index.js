@@ -1,3 +1,3 @@
 "use strict";
-var server_1 = require('./Server/server');
-new server_1.Server().start();
+var Server_1 = require('./Server/Server');
+new Server_1.Server().start();

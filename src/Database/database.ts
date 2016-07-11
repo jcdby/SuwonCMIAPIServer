@@ -1,8 +1,4 @@
-/// <reference path="./../../typings/index.d.ts" />
-
 import * as mongoose from 'mongoose';
-
-
 
 class database {
   private db: any;

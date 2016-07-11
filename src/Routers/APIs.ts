@@ -1,7 +1,5 @@
 import * as express from 'express';
-import {articleRouter} from './tsarticleAPI';
-import {galleryRouter} from './tsgalleryAPI';
-import * as user_contro from './../controller/userController'
+import * as routers from './APIRouterIndex'
 
 export class APIRouter {
 
@@ -13,11 +11,10 @@ export class APIRouter {
   init(app: express.Express){
 
     app.use(express.static('./src/public'));
-    app.use('/articles', articleRouter);
-    app.use('/photos', galleryRouter);
-
-    app.route('/signup')
-        .post(user_contro.signup);
+    app.use('/articles', routers.ArticleRouter.articleRouter);
+    app.use('/photos', routers.GalleryAPI.galleryRouter);
+    app.use('/signup', routers.UserAPI.signupRouter);
+    app.use('/signin', routers.UserAPI.signinRouter);
 
     //Main page api
     app.get('/', function (req, res) {

@@ -2,5 +2,5 @@
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(require('./photoController'));
-__export(require('./userController'));
+__export(require('./PhotoController'));
+__export(require('./UserController'));

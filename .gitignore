@@ -3,3 +3,4 @@ dist/server.js
 .vscode
 node_modules
 .idea
+distTs
