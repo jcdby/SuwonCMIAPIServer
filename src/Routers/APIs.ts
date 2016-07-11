@@ -13,7 +13,8 @@ export class APIRouter {
     app.use(express.static('./src/public'));
     app.use('/articles', routers.ArticleRouter.articleRouter);
     app.use('/photos', routers.GalleryAPI.galleryRouter);
-    app.use('/signup', routers.UserAPI.userRouter);
+    app.use('/signup', routers.UserAPI.signupRouter);
+    app.use('/signin', routers.UserAPI.signinRouter);
 
     //Main page api
     app.get('/', function (req, res) {
