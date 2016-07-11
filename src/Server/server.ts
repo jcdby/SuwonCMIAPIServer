@@ -7,7 +7,8 @@ import * as passport from 'passport'
 
 export class Server {
   private options: JSONObject;
-  private apiRouter: APIRouter
+  private apiRouter: APIRouter;
+  private strategis: Array<passport.Strategy>; //list of strategies used
 
   constructor(options?: JSONObject) {
     this.options = options || {};
