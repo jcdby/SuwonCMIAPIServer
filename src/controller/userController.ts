@@ -1,8 +1,9 @@
 import {User} from './../Models/UserModel';
 import database from './../Database/Database';
 import {Crypto} from './../Securiry/Crypto';
-import * as express from 'express'
-import * as jwt from 'jsonwebtoken'
+import * as express from 'express';
+import * as jwt from 'jsonwebtoken';
+import {config} from './../Config/configs'
 
 export namespace UserController {
         export function signup(req: express.Request, res: express.Response) {
@@ -44,7 +45,7 @@ export namespace UserController {
                                        });
                                }else{
                                        //generate token and return
-                                       let token: any = jwt.sign(req.body, 'swcmi', {});
+                                       let token: any = jwt.sign(req.body, config.JwtStrategy.secretOrKey, {});
                                        res.send({
                                                token: token,
                                                isSuccess: true
