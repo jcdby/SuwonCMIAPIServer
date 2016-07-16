@@ -30,10 +30,18 @@ export namespace UserController {
                 User.findOne({username: req.body.username}, (err: any, item: any) => {
                         if (err) throw err;
                         if(!item){
-                                res.send('user is not existed! please Sign up!')
+                                res.send({
+                                        isSuccess: false,
+                                        errOn:'username',
+                                        msg: 'user is not existed! please Sign up!'
+                                })
                         }else{
                                if(!Crypto.bcryptCompare(req.body.password, item.password)){
-                                       res.send('password is wrong');
+                                       res.send({
+                                               isSuccess: false,
+                                               errOn: 'password',
+                                               msg: 'password is wrong!'
+                                       });
                                }else{
                                        //generate token and return
                                        let token: any = jwt.sign(req.body, 'swcmi', {});
