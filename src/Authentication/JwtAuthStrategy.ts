@@ -1,7 +1,6 @@
 import * as passportJwt from 'passport-jwt';
 
 
-
 export class JwtStrategy extends passportJwt.Strategy {
   constructor(options?: any, verify?: passportJwt.VerifyCallback) {
     options = options || <passportJwt.StrategyOptions>{};

@@ -23,13 +23,13 @@ gulp.task('node', ['tscompile'], function () {
     env: {
       'NODE_ENV': 'development'
     },
-    ignore: ['src/**', 'node_modules/**', 'bower_components/**', 'typings/**'],
+    ignore: ['src/**', 'node_modules/**', 'bower_components/**', 'typings/**']
   });
 });
 
 gulp.task('watch', function () {
   gulp.watch(['./src/' + '/**/*.ts'], ['tscompile'])
-})
+});
 
 gulp.task('default', ['node', 'watch']);
 
