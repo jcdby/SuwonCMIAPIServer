@@ -11,7 +11,7 @@ export namespace ArticleRouter {
         res.send('getting articles')
     });
 
-};
+}
 
 
 

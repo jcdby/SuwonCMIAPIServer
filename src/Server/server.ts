@@ -1,12 +1,12 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as multer from 'multer';
-import {APIRouter} from '../Routers/APIs'
-import {allowCrossDomain} from '../Middlewares/CORSmiddleware'
+import {APIRouter} from '../Routers/APIs';
+import {allowCrossDomain} from '../Middlewares/CORSmiddleware';
 import * as passport from 'passport';
 import * as cookieParser from 'cookie-parser';
 import {config} from '../Config/configs';
-import * as expressSession from 'express-session'
+import * as expressSession from 'express-session';
 
 import {passportConfig} from '../Config/passport.config';
 passportConfig(passport);
@@ -39,13 +39,13 @@ export class Server {
     app.use(passport.session()); // persistent login sessions
 
     //start router
-    this.apiRouter.init(app)
+    this.apiRouter.init(app);
 
 
     //port
     app.listen(10000, function () {
       console.log('SuWon church API Server listening on port 10000!')
-    })
+    });
 
   }
 

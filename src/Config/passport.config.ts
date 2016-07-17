@@ -1,7 +1,7 @@
-import * as passport from 'passport'
+import * as passport from 'passport';
 import * as authentication from './../Authentication/index';
 import {config} from './configs';
-import {User} from '../Models/UserModel'
+import {User} from '../Models/UserModel';
 
 export function passportConfig(passport: passport.Passport) {
   let strategy: passport.Strategy = new authentication.JwtStrategy(config.JwtStrategy);
@@ -14,8 +14,6 @@ export function passportConfig(passport: passport.Passport) {
       done(err, user);
     });
   });
-
-  
 
   //use jwtstrategy
   passport.use(new authentication.JwtStrategy(config.JwtStrategy));
