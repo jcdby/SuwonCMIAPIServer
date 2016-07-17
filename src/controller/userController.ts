@@ -11,7 +11,10 @@ export namespace UserController {
                 User.findOne({ username: req.body.username }, function (err: any, item: any) {
                         if (err) throw err;
                         if (item) {
-                                res.send(item.username + ' is existed')
+                                res.send({
+                                        isSignUpSuccess: false,
+                                        msg:  item.username + ' is existed, Please try a new name'
+                                })
                         } else {
                                 //encrypt password 
                                 let password: string = Crypto.bcryptHash(req.body.password);
@@ -20,8 +23,21 @@ export namespace UserController {
 
                                 user.save(function (err: any, item: any) {
                                         if (err) throw err;
+
+                                        //generate token and return
+                                       let token: any = jwt.sign(req.body, config.JwtStrategy.secretOrKey, {});
+
+                                       let userInfo: any = {};
+                                       userInfo.username = item.username;
+                                       userInfo.id = item._id;
+
                                         // object of all the users
-                                        res.send(item + ' is created!');
+                                        res.send({
+                                                isSignUpSuccess: true,
+                                                token: token,
+                                                userInfo: userInfo,
+                                                msg: userInfo.username + ' is created!' 
+                                        });
                                 });
                         }
                 })
