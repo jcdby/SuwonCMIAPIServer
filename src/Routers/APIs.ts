@@ -14,6 +14,7 @@ export class APIRouter {
 
     app.use(express.static('./src/public'));
     app.use('/articles', routers.ArticleRouter.articleRouter);
+    app.use('/forum', routers.ForumAPI.forumRouter);
     app.use('/photos', passport.authenticate('jwt'), routers.GalleryAPI.galleryRouter);
     app.use('/signup', routers.UserAPI.signupRouter);
     app.use('/signin', routers.UserAPI.signinRouter);

@@ -1,1 +1,1 @@
-export {JwtStrategy} from './JwtAuthStrategy'
+export {JwtStrategy} from './JwtAuthStrategy';

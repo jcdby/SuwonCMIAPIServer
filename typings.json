@@ -11,6 +11,7 @@
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160701212727",
     "express-session": "registry:dt/express-session#0.0.0+20160331200931",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
     "mongoose": "registry:dt/mongoose#3.8.5+20160629014609",
     "multer": "registry:dt/multer#0.0.0+20160317120654",
     "node": "registry:env/node#6.0.0+20160622202520",

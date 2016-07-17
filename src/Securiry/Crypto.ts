@@ -9,4 +9,4 @@ export class Crypto {
   public static bcryptCompare(data: string, hash: string): boolean {
     return bcrypt.compareSync(data, hash);
   }  
-};
+}

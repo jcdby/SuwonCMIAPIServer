@@ -16,9 +16,9 @@ export namespace PhotoController {
                 Gallery.count({}, (err: any, count: any) => {
                     if (err) throw err;
                     let result = {
-                        items,
-                        count
-                    }
+                        items:null,
+                        count:null
+                    };
                     result.items = items;
                     result.count = count;
                     res.json(result);
