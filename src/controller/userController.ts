@@ -49,7 +49,7 @@ export namespace UserController {
                         if(!item){
                                 res.send({
                                         isSuccess: false,
-                                        errOn:'username',
+                                        errOn: 'userName',
                                         msg: 'user is not existed! please Sign up!'
                                 })
                         }else{
@@ -64,11 +64,42 @@ export namespace UserController {
                                        let token: any = jwt.sign(req.body, config.JwtStrategy.secretOrKey, {});
                                        res.send({
                                                token: token,
-                                               isSuccess: true
+                                               isSuccess: true,
+                                               userName: item.username,
+                                               msg: 'Sign In Successfully'
                                        });
                                }
                         }
                 })
         }
+
+        export function authenticate(req: express.Request, res: express.Response) {
+                if(req.header('Authorization')){
+                        let token = req.header('Authorization');
+                        jwt.verify(token, config.JwtStrategy.secretOrKey, {}, function (err: any, userInfo: any) {
+                         if(err) throw err;
+                        if(userInfo === null) {
+                                 res.send({
+                                        isSuccess: false,
+                                        msg: 'token verification is failed!'
+                                })
+                        }
+                        res.send({
+                                isSuccess: true,
+                                userName: userInfo.username
+                        })
+                })
+                }else{
+                        res.send({
+                                isSuccess: false,
+                                msg: 'There is no token!'
+                        })
+                }
+                
+                
+               
+        }
+
+
 }
 

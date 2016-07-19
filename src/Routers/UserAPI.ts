@@ -6,9 +6,11 @@ export namespace UserAPI {
   signupRouter.all('/', function (req, res, next) {
     next();
   })
-    .post('/', controllers.UserController.signup);
+    .post('/', controllers.UserController.signup)
+    
 
   export var signinRouter = express.Router();
-  signinRouter.post('/', controllers.UserController.signin);
+  signinRouter.post('/', controllers.UserController.signin)
+  .get('/auth', controllers.UserController.authenticate)
 
 }

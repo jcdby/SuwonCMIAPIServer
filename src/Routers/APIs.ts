@@ -21,7 +21,7 @@ export class APIRouter {
 
     //Main page api
     app.get('/', function (req, res) {
-        res.send('Welcome to Suwon CMI church!changing');
+        res.send('Welcome to Suwon CMI church!');
     });
   }
   
