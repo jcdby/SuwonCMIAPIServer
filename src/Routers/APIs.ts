@@ -13,11 +13,20 @@ export class APIRouter {
   init(app: express.Express){
 
     app.use(express.static('./src/public'));
+    app.use('/signup', routers.UserAPI.signupRouter);
+    app.use('/signin',  (req: express.Request ,res: any,next: any) => {
+      console.log(req.headers);
+      next();
+      
+    },routers.UserAPI.signinRouter);
     app.use('/articles', routers.ArticleRouter.articleRouter);
     app.use('/forum', routers.ForumAPI.forumRouter);
-    app.use('/photos', passport.authenticate('jwt'), routers.GalleryAPI.galleryRouter);
-    app.use('/signup', routers.UserAPI.signupRouter);
-    app.use('/signin', routers.UserAPI.signinRouter);
+    app.use('/photos', (req: express.Request ,res: any,next: any) => {
+      console.log(req.headers);
+      next();
+      
+    }, routers.GalleryAPI.galleryRouter);
+    
 
     //Main page api
     app.get('/', function (req, res) {
