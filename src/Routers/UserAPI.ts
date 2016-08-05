@@ -3,14 +3,13 @@ import * as controllers from '../controller/userController'
 
 export namespace UserAPI {
   export var signupRouter = express.Router();
-  signupRouter.all('/', function (req, res, next) {
-    next();
-  })
+  signupRouter
     .post('/', controllers.UserController.signup)
     
 
   export var signinRouter = express.Router();
-  signinRouter.post('/', controllers.UserController.signin)
-  .get('/auth', controllers.UserController.authenticate)
+  signinRouter
+      .post('/', controllers.UserController.signin)
+      .get('/auth', controllers.UserController.authenticate)
 
 }

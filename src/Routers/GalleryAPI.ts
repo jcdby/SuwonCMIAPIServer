@@ -1,15 +1,14 @@
 import * as controllers from './../controller/index';
 import * as  express from 'express';
-import * as passport from 'passport'
-
+import * as passport from 'passport';
+import * as multer from 'multer';
+var upload = multer({ dest: 'uploads/' });
 
 
 export namespace GalleryAPI {
     export var galleryRouter = express.Router();
-    galleryRouter.all('/', function (req, res, next) {
-        console.log('photos are requested!');
-        next();
-    }).get('/', passport.authenticate('jwt'), controllers.PhotoController.getGalleryList);
+    galleryRouter
+        .get('/', passport.authenticate('jwt'), controllers.PhotoController.getGalleryList)
+        .post('/', upload.array('file'), controllers.PhotoController.uploadPhoto);
 
 }
-

@@ -11,3 +11,6 @@ importing typings:
 typings search [name of dtd]
 then
 typings install dt~jasmine --global --save
+
+##update typings after installing npm module.It will automaticlly search the related npm module`s typings and install it.
+npm i -g typings
