@@ -23,6 +23,7 @@ export class Server {
 
   start() {
     let app: express.Express = express();
+    app.use('/', express.static('public'));
     var upload: multer.Instance = multer(); // for parsing multipart/form-data
 
     //Server Middlewares configuration part
